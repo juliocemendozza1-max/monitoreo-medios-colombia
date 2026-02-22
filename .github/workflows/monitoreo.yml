@@ -22,3 +22,11 @@ jobs:
 
       - name: Run monitoring
         run: python monitoreo.py
+
+      - name: Commit Excel
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add base_monitoreo.xlsx
+          git commit -m "Actualizacion automatica monitoreo" || echo "Sin cambios"
+          git push
